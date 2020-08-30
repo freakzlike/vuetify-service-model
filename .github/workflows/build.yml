@@ -41,3 +41,11 @@ jobs:
       run: npm run test:lib
       env:
         CI: true
+
+    - name: upload code coverage to codecov.io
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage/coverage-final.json
+        flags: unittests
+        name: codecov
+        fail_ci_if_error: true
